@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MaquillApp - Sistema de Ventas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Panel Principal - Sistema de Ventas</h1>
+    <nav>
+      <div class="nav-btn-group" id="navBtnGroup">
+        <button data-section="dashboard"><span>🏠</span> Resumen</button>
+        <button data-section="productos"><span>📦</span> Productos</button>
+        <button data-section="ventas"><span>🧾</span> Ventas</button>
+        <button data-section="clientes"><span>👤</span> Clientes</button>
+        <button data-section="empleados"><span>👔</span> Empleados</button>
+        <button data-section="reportes"><span>📊</span> Reportes</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="dashboard" class="active">
+      <h2>Indicadores Clave</h2>
+      <div class="dashboard-cards">
+        <div class="card"><h3 id="ventasTotales">0</h3><p>Ventas Totales (Mes)</p></div>
+        <div class="card"><h3 id="productosCriticos">0</h3><p>Productos por Agotarse</p></div>
+        <div class="card"><h3 id="productosVendidos">0</h3><p>Producto Más Vendido</p></div>
+        <div class="card"><h3 id="gananciasTotales">$0</h3><p>Ganancias (Mes)</p></div>
+      </div>
+      <div class="charts">
+        <canvas id="ventasChart"></canvas>
+        <canvas id="productosChart"></canvas>
+      </div>
+    </section>
+
+    <section id="productos">
+      <h2>Gestión de Productos</h2>
+      <button id="btnAddProducto">➕ Agregar Producto</button>
+      <table id="tablaProductos">
+        <thead><tr><th>Nombre</th><th>Categoría</th><th>Costo</th><th>Precio</th><th>Stock</th><th>Promoción</th><th>Acciones</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="ventas">
+      <h2>Registro de Ventas</h2>
+      <button id="btnNuevaVenta">➕ Nueva Venta</button>
+      <table id="tablaVentas">
+        <thead><tr><th>Factura</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Acciones</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="clientes">
+      <h2>Gestión de Clientes</h2>
+      <button id="btnAddCliente">➕ Agregar Cliente</button>
+      <table id="tablaClientes">
+        <thead><tr><th>Nombre</th><th>Email</th><th>Teléfono</th><th>Compras</th><th>Acciones</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="empleados">
+      <h2>Gestión de Empleados</h2>
+      <button id="btnAddEmpleado">➕ Agregar Empleado</button>
+      <table id="tablaEmpleados">
+        <thead><tr><th>Nombre</th><th>Salario/Día</th><th>Días</th><th>Total</th><th>Acciones</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section id="reportes">
+      <h2>Reportes</h2>
+      <button id="btnReporteVentas">📄 Reporte de Ventas</button>
+      <button id="btnReporteMargen">📊 Reporte de Margen</button>
+      <div id="contenedorReportes" class="reporte-output"></div>
+    </section>
+  </main>
+
+  <div id="modalContainer" class="modal-container"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
